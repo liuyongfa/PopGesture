@@ -96,11 +96,21 @@ extension NavigationHander {
     
     //在该协议里返回自定义动画
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard operation == .pop else {
+        
+        animator?.currentOpearation = operation
+        var ignoreTabbar = true
+        switch operation {
+        case .pop:
+            fromVC.view.layer.addSublayer(uiPopShadow)
+            ignoreTabbar = toVC.hidesBottomBarWhenPushed || !fromVC.hidesBottomBarWhenPushed
+        case .push:
+            //如果不需要自定义push，可以return nil
+            toVC.view.layer.addSublayer(uiPopShadow)
+            ignoreTabbar = !toVC.hidesBottomBarWhenPushed || fromVC.hidesBottomBarWhenPushed
+        default:
             return nil
         }
-        fromVC.view.layer.addSublayer(uiPopShadow)
-        animator?.tabbar = toVC.hidesBottomBarWhenPushed || !fromVC.hidesBottomBarWhenPushed ? nil : navigitionCtr.tabBarController?.tabBar
+        animator?.tabbar = ignoreTabbar ? nil : navigitionCtr.tabBarController?.tabBar
         return animator
     }
 }

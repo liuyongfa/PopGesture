@@ -13,7 +13,6 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopGesture" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ch4-WB-Xtj"/>
@@ -40,6 +39,7 @@
                         <outlet property="bn" destination="qOW-9V-tQ5" id="NCv-KT-PsM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="-708"/>
         </scene>
@@ -89,6 +89,9 @@
                                     <constraint firstAttribute="height" constant="40" id="eJX-DO-TVU"/>
                                 </constraints>
                                 <state key="normal" title="按我的左边缘也会有按下效果"/>
+                                <connections>
+                                    <segue destination="aN7-s3-g9g" kind="show" id="DjN-cm-x7N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWt-oZ-YBE">
                                 <rect key="frame" x="125.5" y="627" width="123" height="40"/>
@@ -111,6 +114,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uk-AQ-fNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="820" y="-698.5007496251875"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="V8N-mR-F1n">
+            <objects>
+                <viewController id="aN7-s3-g9g" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Jl-cr-B9z"/>
+                        <viewControllerLayoutGuide type="bottom" id="6VU-4o-d3c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pq0-QN-sYD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-3K-MwP">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="cnZ-gP-77X" kind="show" id="0wb-vI-m4R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZ7-NW-T1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1507" y="-701"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="b9z-ne-hFf">
+            <objects>
+                <viewController id="cnZ-gP-77X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xae-4V-mWQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="CE2-lV-HgO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRx-Tx-Bb2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wib-ci-PHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941" y="-750"/>
         </scene>
         <!--Item-->
         <scene sceneID="fAP-77-B4s">
