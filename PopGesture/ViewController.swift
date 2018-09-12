@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     var navigationHander:NavigationHander!
     
     @IBOutlet weak var bn: UIButton!
+    
+    override func loadView() {
+        super.loadView()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -13,6 +13,7 @@ class NavigationHander: NSObject, UINavigationControllerDelegate, UIGestureRecog
     var navigitionCtr: UINavigationController!
     var panRecognizer: UIPanGestureRecognizer!
     
+    fileprivate let edgeWidth: CGFloat = 44.0
     
     /// 自定义动画，实现了UIViewControllerAnimatedTransitioning协议
     fileprivate var animator: NavigationAnimator?
@@ -54,6 +55,16 @@ class NavigationHander: NSObject, UINavigationControllerDelegate, UIGestureRecog
 
 //MARK: - UIGestureRecognizerDelegate
 extension NavigationHander {
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == panRecognizer {
+            let location = gestureRecognizer.location(in: gestureRecognizer.view)
+            return location.x < edgeWidth
+        }
+        return true
+    }
+
+    
     @objc fileprivate func panGesture(_ recognizer: UIPanGestureRecognizer) {
         guard let view = recognizer.view else {
             return
@@ -62,7 +73,7 @@ extension NavigationHander {
         case .began:
             let location = recognizer.location(in: view)
             //左边缘44个单位以内才有效
-            if location.x < 44.0, navigitionCtr.viewControllers.count > 1 {
+            if location.x < edgeWidth, navigitionCtr.viewControllers.count > 1 {
                 interaction = UIPercentDrivenInteractiveTransition()
                 navigitionCtr .popViewController(animated: true) //会调用UINavigationControllerDelegate
             }
