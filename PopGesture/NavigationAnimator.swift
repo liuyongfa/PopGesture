@@ -9,7 +9,7 @@
 import UIKit
 
 class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    let duration: TimeInterval = 0.35
+    let duration: TimeInterval = 0.25
     
     /// 如果需要做tabbar的动画就传值，不需要就不传
     var tabbar: UITabBar?
@@ -53,7 +53,7 @@ class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         //动画
         let duration = transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, animations: { [weak self] in
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseOut, animations: { [weak self] in
             fromeView.frame.origin.x = -width * 0.5
             toView.frame.origin.x = 0
             self?.tabbar?.frame.origin.x = width * 0.5
@@ -84,7 +84,7 @@ class NavigationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         //动画
         let duration = transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, animations: { [weak self] in
+        UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseOut, animations: { [weak self] in
             fromeView.frame.origin.x = width
             toView.frame.origin.x = 0
             self?.tabbar?.frame.origin.x = 0
